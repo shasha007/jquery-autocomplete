@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	    <script src="js/jquery-ui-custom.min.js"></script>
+	    <!--<script src="chosen/chosen.jquery.js"></script>-->
+	    <link rel="stylesheet" href="css/jquery-ui.css">
+	    <!--<link href="chosen/chosen.css" />-->
+	
+	    <script>
+	        $(function() {
+	            var availableTags = [
+	                "河南",
+	                "河北",
+	                "河东",
+	                "河西",
+	                "河西上",
+	                "河西下",
+	                "河西左",
+	                "河西又",
+	                "河西中",
+	                "河西这种",
+	                "河南郑州",
+	                "河南洛阳",
+	                "河南商丘",
+	                "河南焦作",
+	                ];
+	            $( "#tags" ).autocomplete({// $( "#tags" )选中id为tags的输入框
+	                source: availableTags//指定数据源是名字为availableTags的数组
+	            });
+	        });
+
+	    </script>
+	</head>
+	<body>
+			<div class="ui-widget">
+			    <label for="tags">学校</label>
+			    <input id="tags" onchange="checkField(this.value)">
+			</div>
+			<!--<select name="subSchoolId" class="subSchoolId">
+				<option value="">请选择</option>
+			</select>
+			<select class="chzn-select" data-placeholder="Choose a Country" style="width:350px;" tabindex="1"> 
+               <option value=""></option>  
+               <option value="United States">United States</option>  
+               <option value="United Kingdom">United Kingdom</option>  
+               <option value="Afghanistan">Afghanistan</option>  
+               <option value="Albania">Albania</option>  
+			</select>-->
+	</body>
+</html>
+<script>
+	$('.subSchoolId').chosen();
+
+
+//	var schoolList = [];
+//	$.ajax({
+//	    contentType:"application/json;charset=UTF-8",
+//	    type:"post",
+//	    url:"${ctx}/school/getListOrderByFirstSpellASCString",
+//	    data:JSON.stringify({"token":"1","param":{}}),
+//	    success:function(data){
+//	    	if(data.code == 0){
+//	    		layer.msg('获取异常');
+//	    		return;
+//	    	}
+//			schoolList = data.content;
+//			$( "#schoolName" ).autocomplete({// $( "#tags" )选中id为tags的输入框
+//		        source: schoolList//指定数据源是名字为availableTags的数组
+//		    });
+//	    }
+//	});
+//	
+//	function checkField(val){
+//				var schoolId = val;
+//				var subSchool = $("select[name=subSchoolId]");
+//				subSchool.empty();
+//
+//				var option = $("<option>请选择</option>");
+//				subSchool.append(option);
+//				if (val != '') {
+//					$.ajax({
+//								contentType : "application/json; charset=utf-8",
+//								dataType : 'json',
+//								type : "POST",
+//								url : "${ctx}/admin/school/getSubSchoolsOrderByFirstSpellAsc",
+//								data : JSON
+//										.stringify(GetData(schoolId)),
+//								success : function(
+//										result) {
+//									if (result.code == 1) {
+//										var content = result.content;
+//										for ( var i = 0 in content) {
+//											option = $("<option value='"+content[i].id+"'>"
+//													+ content[i].name
+//													+ "</option>");
+//											subSchool.append(option);
+//										}
+//
+//									} else {
+//										layer.msg(result.msg);
+//									}
+//								}
+//							});
+//				};
+//	}
+//	function GetData(schoolId) {
+//		var json = {
+//			"token" : "",
+//			"param" : {
+//				'schoolId' : schoolId
+//			}
+//		};
+//		return json;
+//	}
+//</script>
+</script>
